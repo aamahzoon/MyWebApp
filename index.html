@@ -3,100 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اپلیکیشن من</title>
-    <style>
-        body {
-            font-family: 'Tahoma', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        input {
-            width: 80%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 16px;
-            margin: 10px 0;
-            transition: 0.3s;
-        }
-        input:focus {
-            border-color: #667eea;
-            outline: none;
-        }
-        button {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-            margin: 10px 0;
-        }
-        button:hover {
-            background: #764ba2;
-            transform: scale(1.05);
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #333;
-            padding: 10px;
-            background: #f0f0f0;
-            border-radius: 10px;
-            min-height: 40px;
-        }
-    </style>
+    <title>ماشین حساب حرفه‌ای</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🌟 سلام!</h1>
-        <p>نام خود را وارد کنید:</p>
-        <input type="text" id="nameInput" placeholder="مثلاً: علی">
-        <br>
-        <button onclick="sayHello()">سلام کن!</button>
-        <div id="result">👋 منتظر شما هستم...</div>
+    <div class="calculator">
+        <div class="header">
+            <h2>🧮 ماشین حساب</h2>
+        </div>
+        
+        <div class="display" id="display">0</div>
+        
+        <div class="buttons">
+            <!-- ردیف اول: پاک‌کننده‌ها -->
+            <button class="btn operator" data-value="clear">C</button>
+            <button class="btn operator" data-value="delete">⌫</button>
+            <button class="btn operator" data-value="%">%</button>
+            <button class="btn operator" data-value="/">÷</button>
+            
+            <!-- ردیف دوم -->
+            <button class="btn number" data-value="7">7</button>
+            <button class="btn number" data-value="8">8</button>
+            <button class="btn number" data-value="9">9</button>
+            <button class="btn operator" data-value="*">×</button>
+            
+            <!-- ردیف سوم -->
+            <button class="btn number" data-value="4">4</button>
+            <button class="btn number" data-value="5">5</button>
+            <button class="btn number" data-value="6">6</button>
+            <button class="btn operator" data-value="-">−</button>
+            
+            <!-- ردیف چهارم -->
+            <button class="btn number" data-value="1">1</button>
+            <button class="btn number" data-value="2">2</button>
+            <button class="btn number" data-value="3">3</button>
+            <button class="btn operator" data-value="+">+</button>
+            
+            <!-- ردیف پنجم -->
+            <button class="btn number zero" data-value="0">0</button>
+            <button class="btn number" data-value=".">.</button>
+            <button class="btn equals" data-value="=">=</button>
+        </div>
+        
+        <div class="history" id="history">
+            <span>📜 تاریخچه</span>
+            <div id="historyList"></div>
+        </div>
     </div>
 
-    <script>
-        function sayHello() {
-            const name = document.getElementById('nameInput').value;
-            const resultDiv = document.getElementById('result');
-            
-            if (name.trim() === '') {
-                resultDiv.innerHTML = '⚠️ لطفاً نام خود را وارد کنید!';
-                resultDiv.style.background = '#ffe0e0';
-            } else {
-                resultDiv.innerHTML = `🎉 سلام ${name}! خوش آمدی به اپلیکیشن من!`;
-                resultDiv.style.background = '#e0f7e0';
-            }
-        }
-        
-        // قابلیت زدن Enter
-        document.getElementById('nameInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sayHello();
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
